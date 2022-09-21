@@ -8,7 +8,7 @@ import logoImg from '../../assets/logo-nlw-esports.png';
 import {styles} from "./styles";
 import {Background} from "../../components/Background";
 import {GameParams} from "../../@types/navigation";
-import {FlatList, Image, TouchableOpacity, View} from "react-native";
+import {FlatList, Image, Text, TouchableOpacity, View} from "react-native";
 import {THEME} from "../../theme";
 import {Heading} from "../../components/Heading";
 import {DuoCard, DuoCardProps} from "../../components/DuoCard";
@@ -58,7 +58,20 @@ export function Game() {
                     data={duos}
                     keyExtractor={item => item.id}
                     renderItem={({item}) => (
-                        <DuoCard  data={item}/>
+                        <DuoCard
+                            data={item}
+                            onConnect={() => {
+                            }}
+                        />
+                    )}
+                    horizontal
+                    style={styles.containerList}
+                    contentContainerStyle={[duos.length > 0 ? styles.contentList : styles.emptyContentList]}
+                    showsHorizontalScrollIndicator={false}
+                    ListEmptyComponent={() => (
+                        <Text style={styles.emptyListText}>
+                            Não há anúncios publicados para este jogo!
+                        </Text>
                     )}
                 />
             </SafeAreaView>
