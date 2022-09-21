@@ -6,7 +6,7 @@ import {THEME} from "../../theme";
 export interface  GameCardProps {
     id: string;
     title: string;
-    _count: { ads: number };
+    _count: { ads: number; };
     bannerUrl: string;
 }
 
